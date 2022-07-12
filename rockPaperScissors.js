@@ -1,5 +1,15 @@
-const buttons = document.querySelectorAll('.option');
+const rock = document.querySelector(".rock");
+const paper = document.querySelector(".paper");
+const scissors = document.querySelector(".scissors");
 
-divs.forEach(el => el.addEventListener('click', event => {
-    console.log(event.target.getAttribute("data-key"));
-  }));
+rock.addEventListener("click", e => {
+	console.log(e.target.className);
+});
+
+paper.addEventListener("click", e => {
+	console.log(e.target.className);
+});
+
+scissors.addEventListener("click", e => {
+	console.log(e.target.className);
+});
