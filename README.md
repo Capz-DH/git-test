@@ -1,1 +1,3 @@
-# git-test
+Index.html is old and wont work, unsure how to delete it....
+
+Game is fully functioning now, but has not CSS.
