@@ -4,38 +4,69 @@ function computerPlay(){
     return choices[ranNum];
 };
 
-const button1 = document.querySelector('.Rock'); 
-button1.addEventListener('click', playerPlay);
+let playerScore = 0;
+let computerScore = 0;
+const buttons = document.querySelectorAll('.input')
 
-const button2 = document.querySelector('.Paper'); 
-button2.addEventListener('click', playerPlay);
-
-const button3 = document.querySelector('.Scissors'); 
-button3.addEventListener('click', playerPlay);
-
-
-function playerPlay(event){
-   console.log('working');
+function disableButtons() {
+    buttons.forEach(elem => {
+        elem.disabled = true
+    })
 }
-
 
 function playRound(playerSelection, computerSelection)  {
     
     computerSelection = computerPlay();
-    playerSelection = playerPlay();
+    console.log(computerSelection);
+    
+
+ 
  
     if (computerSelection === "Rock" && playerSelection === "Scissors"){
-        return "You Lose! Rock beats Scissors!";
-    }  else if (computerSelection === "Rock" && playerSelection === "Paper"){
-        return "You Win! Paper beats Rock!";
-    }  else if (computerSelection === "Scissors" && playerSelection === "Paper"){
-        return "You lose! Scissors beats Paper!";
-    }  else if (computerSelection === "Scissors" && playerSelection === "Rock"){
-        return "You Win! Rock beats Scissors!";
-    }  else if (computerSelection === "Paper" && playerSelection === "Scissors"){
-        return "You Win! Scissors beats Paper!";
-    }  else if (computerSelection === "Paper" && playerSelection === "Rock"){
-        return "You lose! Rock beats paper!";
-    }  else if (computerSelection === playerSelection)
-        return "Draw!";
+        document.getElementById("result").innerHTML = "You Lose! Rock beats Scissors!";
+        computerScore += 1;
+        document.getElementById("scoreC").innerHTML = computerScore;
+        if (computerScore === 5) {
+            document.getElementById("finalscore").innerHTML = "I Win! Idiot!";
+            disableButtons()
+    }}  else if (computerSelection === "Rock" && playerSelection === "Paper"){
+        document.getElementById("result").innerHTML = "You Win! Paper beats Rock!";
+        playerScore += 1;
+        document.getElementById("scoreP").innerHTML = playerScore;
+        if (playerScore === 5) {
+            document.getElementById("finalscore").innerHTML = "You Win... Lucky!";
+            disableButtons()
+    }}  else if (computerSelection === "Scissors" && playerSelection === "Paper"){
+        document.getElementById("result").innerHTML = "You lose! Scissors beats Paper!";
+        computerScore += 1;
+        document.getElementById("scoreC").innerHTML = computerScore;
+        if (computerScore === 5) {
+            document.getElementById("finalscore").innerHTML = "I Win! Idiot!";
+            disableButtons()
+    }}  else if (computerSelection === "Scissors" && playerSelection === "Rock"){
+        document.getElementById("result").innerHTML = "You Win! Rock beats Scissors!";
+        playerScore += 1;
+        document.getElementById("scoreP").innerHTML = playerScore;
+        if (playerScore === 5) {
+            document.getElementById("finalscore").innerHTML = "You Win... Lucky!";
+            disableButtons()
+    }}  else if (computerSelection === "Paper" && playerSelection === "Scissors"){
+        document.getElementById("result").innerHTML = "You Win! Scissors beats Paper!";
+        playerScore += 1;
+        document.getElementById("scoreP").innerHTML = playerScore;
+        if (playerScore === 5) {
+            document.getElementById("finalscore").innerHTML = "You Win... Lucky!";
+            disableButtons()
+    }}  else if (computerSelection === "Paper" && playerSelection === "Rock"){
+        document.getElementById("result").innerHTML = "You lose! Paper beats Rock!";
+        computerScore += 1;
+        document.getElementById("scoreC").innerHTML = computerScore;
+        if (computerScore === 5) {
+            document.getElementById("finalscore").innerHTML = "I Win! Idiot!";
+            disableButtons()
+     } }  else if (computerSelection === playerSelection) 
+        document.getElementById("result").innerHTML = "Draw!";
+        
+    
 }
+
